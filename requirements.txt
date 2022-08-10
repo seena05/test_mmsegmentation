@@ -1,0 +1,3 @@
+#
+# clearml-taskの実行時にGIT-ROOTのrequirements.txtを探索する問題を回避するため空のファイルとして置いている
+#

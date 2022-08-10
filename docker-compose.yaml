@@ -1,0 +1,191 @@
+services:
+  paddle_detection:
+    container_name: PaddleDetection
+    build:
+      context: .
+      dockerfile: ./docker/PaddleDetection
+    shm_size: '8gb'
+    volumes:
+      - "./PaddleDetection:/workspace/PaddleDetection"
+      - "./data:/workspace/data"
+      - "./configs:/workspace/configs"
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+  paddle_seg:
+    container_name: PaddleSeg
+    build:
+      context: .
+      dockerfile: ./docker/PaddleSeg
+    shm_size: '8gb'
+    volumes:
+      - "./PaddleSeg:/workspace/PaddleSeg"
+      - "./data:/workspace/data"
+      - "./configs:/workspace/configs"
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+  mmdetection:
+    container_name: mmdetection
+    build:
+      context: .
+      dockerfile: ./docker/mmdetection
+    shm_size: '8gb'
+    volumes:
+      - "./mmdetection:/workspace/mmdetection"
+      - "./data:/workspace/data"
+      - "./configs:/workspace/configs"
+      - "./pretrain:/workspace/pretrain"
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+  mmsegmentation:
+    container_name: mmsegmentation
+    build:
+      context: .
+      dockerfile: ./docker/mmdetection
+    shm_size: '8gb'
+    volumes:
+      - "./mmsegmentation:/workspace/mmsegmentation"
+      - "./data:/workspace/data"
+      - "./configs:/workspace/configs"
+      - "./pretrain:/workspace/pretrain"
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+  dab_detr:
+    container_name: DAB-DETR
+    build:
+      context: .
+      dockerfile: ./docker/DAB-DETR
+    shm_size: '8gb'
+    volumes:
+      - "./DAB-DETR:/workspace/DAB-DETR"
+      - "./data:/workspace/data"
+      - "./configs:/workspace/configs"
+      - "./pretrain:/workspace/pretrain"
+    command: /bin/sh -c "while sleep 1000; do :; done"
+  yolox:
+    container_name: YOLOX
+    build:
+      context: .
+      dockerfile: ./docker/YOLOX
+    shm_size: '8gb'
+    volumes:
+      - "./YOLOX:/workspace/YOLOX"
+      - "./data:/workspace/data"
+      - "./configs:/workspace/configs"
+      - "./pretrain:/workspace/pretrain"
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+  cbnetv2:
+    container_name: CBNetV2
+    build:
+      context: .
+      dockerfile: ./docker/CBNetV2
+    shm_size: '8gb'
+    volumes:
+      - "./CBNetV2:/workspace/CBNetV2"
+      - "./data:/workspace/data"
+      - "./configs:/workspace/configs"
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+  focalnet:
+    container_name: FocalNet
+    build:
+      context: .
+      dockerfile: ./docker/mmdetection
+    shm_size: '8gb'
+    volumes:
+      - "./mmdetection:/workspace/mmdetection"
+      - "./FocalNet:/workspace/FocalNet"
+      - "./data:/workspace/data"
+      - "./configs:/workspace/configs"
+      - "./pretrain:/workspace/pretrain"
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+  swin_transformer_object_detection:
+    container_name: Swin-Transformer-Object-Detection
+    build:
+      context: .
+      dockerfile: ./docker/Swin-Transformer-Object-Detection
+    shm_size: '8gb'
+    volumes:
+      - "./Swin-Transformer-Object-Detection:/workspace/Swin-Transformer-Object-Detection"
+      - "./data:/workspace/data"
+      - "./configs:/workspace/configs"
+      - "./pretrain:/workspace/pretrain"
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+  swin_transformer_semantic_segmentation:
+    container_name: Swin-Transformer-Semantic-Segmentation
+    build:
+      context: .
+      dockerfile: ./docker/Swin-Transformer-Semantic-Segmentation
+    shm_size: '8gb'
+    volumes:
+      - "./Swin-Transformer-Semantic-Segmentation:/workspace/Swin-Transformer-Semantic-Segmentation"
+      - "./data:/workspace/data"
+      - "./configs:/workspace/configs"
+      - "./pretrain:/workspace/pretrain"
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+  pycenternet:
+    container_name: PyCenterNet
+    build:
+      context: .
+      dockerfile: ./docker/PyCenterNet
+    shm_size: '8gb'
+    volumes:
+      - "./PyCenterNet:/workspace/PyCenterNet"
+      - "./data:/workspace/data"
+      - "./configs:/workspace/configs"
+      - "./pretrain:/workspace/pretrain"
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
