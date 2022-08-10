@@ -4,7 +4,7 @@ clearml-task --project orita-el \
              --script mmsegmentation/tools/clearml_train.py \
              --docker registry.dev.ai-ms.com/yumba/mmsegmentation:latest \
              --branch main \
-             --queue a100 \
+             --queue orita \
              --args \
                dataset_id=9277bc6da7f74dfeb365c05e779f9908 \
                dataset_path=data/esophageal_dataset_3class \
